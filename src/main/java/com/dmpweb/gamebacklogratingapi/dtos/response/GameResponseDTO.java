@@ -1,18 +1,13 @@
 package com.dmpweb.gamebacklogratingapi.dtos.response;
 
-import com.dmpweb.gamebacklogratingapi.entities.Developer;
 import com.dmpweb.gamebacklogratingapi.entities.Game;
-import com.dmpweb.gamebacklogratingapi.entities.Platform;
-import com.dmpweb.gamebacklogratingapi.entities.Publisher;
 import com.dmpweb.gamebacklogratingapi.enums.GenreEnum;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 
+@Getter
 @Setter
 public class GameResponseDTO {
 
@@ -22,11 +17,11 @@ public class GameResponseDTO {
 
     private GenreEnum genre;
 
-    private Platform platform;
+    private String platform;
 
-    private Publisher publisher;
+    private String publisher;
 
-    private Developer developer;
+    private String developer;
 
     private Date releaseDate;
 

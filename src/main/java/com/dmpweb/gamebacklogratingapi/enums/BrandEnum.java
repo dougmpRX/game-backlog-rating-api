@@ -1,14 +1,30 @@
 package com.dmpweb.gamebacklogratingapi.enums;
 
-public enum BrandEnum {
-    MICROSOFT,
-    NINTENDO,
-    SEGA,
-    SONY,
-    STEAM,
-    OTHER;
+import lombok.Getter;
 
-    public String getValue() {
-        return this.name();
+@Getter
+public enum BrandEnum {
+    MICROSOFT (1, "Microsoft"),
+    NINTENDO (2, "Nintendo"),
+    SEGA (3, "Sega"),
+    SONY (4, "Sony"),
+    STEAM (5, "Steam"),
+    OTHER (6, "Other");
+
+    private Integer value;
+    private String description;
+
+    private BrandEnum(Integer value, String description) {
+        this.value = value;
+        this.description = description;
+    }
+
+    public static String getDescription(int value) {
+        for (BrandEnum brand : BrandEnum.values()) {
+            if (brand.getValue().equals(value)) {
+                return brand.getDescription();
+            }
+        }
+        throw new IllegalArgumentException("Invalid brand value: " + value);
     }
 }

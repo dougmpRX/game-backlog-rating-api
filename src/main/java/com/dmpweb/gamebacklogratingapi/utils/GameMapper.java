@@ -3,11 +3,12 @@ package com.dmpweb.gamebacklogratingapi.utils;
 import com.dmpweb.gamebacklogratingapi.dtos.request.GameRequestDTO;
 import com.dmpweb.gamebacklogratingapi.dtos.response.GameResponseDTO;
 import com.dmpweb.gamebacklogratingapi.entities.Game;
-import com.dmpweb.gamebacklogratingapi.enums.GenreEnum;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class GameMapper {
 
     public Game toEntity(GameRequestDTO gameRequestDTO) {

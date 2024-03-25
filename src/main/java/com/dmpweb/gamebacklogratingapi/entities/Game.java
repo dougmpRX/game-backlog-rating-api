@@ -8,7 +8,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -36,20 +35,17 @@ public class Game {
     private String title;
 
     @Column(name = "genre")
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private GenreEnum genre;
 
-    @ManyToOne
     @Column(name = "platform")
-    private Platform platform;
+    private String platform;
 
-    @ManyToOne
     @Column(name = "publisher_id")
-    private Publisher publisher;
+    private String publisher;
 
-    @ManyToOne
     @Column(name = "developer_id")
-    private Developer developer;
+    private String developer;
 
     @Column(name = "release_date")
     private Date releaseDate;
@@ -61,7 +57,7 @@ public class Game {
     private String imageUrl;
 
     @Builder
-    public Game(String title, String genre, Platform platform, Publisher publisher, Developer developer, Date releaseDate,
+    public Game(String title, String genre, String platform, String publisher, String developer, Date releaseDate,
                 Float rating, String imageUrl) {
 
         this.title = title;
